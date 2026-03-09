@@ -17,8 +17,8 @@ export const CocktailInfo = () => {
 
   return (
     <>
-      {cocktail && (
-        <div className="main">
+      {!loading && cocktail && (
+        <div className="mainInfo">
           <div className="contiener">
             <div className="dataCointener">
               <div>
@@ -30,16 +30,16 @@ export const CocktailInfo = () => {
                 <p>Instrucciones: {cocktail.strInstructions}</p>
                 <p>
                   Ingredientes: {cocktail.strIngredient1} ,{" "}
-                  {cocktail.strIngredient2 ? cocktail.strIngredient2 : ""} ,
-                  {cocktail.strIngredient3 ? cocktail.strIngredient3 : " "},
-                  {cocktail.strIngredient4 ? cocktail.strIngredient4 : " "} ,
-                  {cocktail.strIngredient5 ? cocktail.strIngredient5 : " "} ,
-                  {cocktail.strIngredient6 ? cocktail.strIngredient6 : " "} ,
-                  {cocktail.strIngredient7 ? cocktail.strIngredient7 : " "} ,
-                  {cocktail.strIngredient8 ? cocktail.strIngredient8 : " "} ,
-                  {cocktail.strIngredient9 ? cocktail.strIngredient9 : " "} ,
-                  {cocktail.strIngredient10 ? cocktail.strIngredient10 : " "} ,
-                  {cocktail.strIngredient11 ? cocktail.strIngredient11 : " "} ,
+                  {cocktail.strIngredient2 ? cocktail.strIngredient2 + ", " : ""} 
+                  {cocktail.strIngredient3 ? cocktail.strIngredient3 + ", ": " "}
+                  {cocktail.strIngredient4 ? cocktail.strIngredient4 + ", ": " "} 
+                  {cocktail.strIngredient5 ? cocktail.strIngredient5 + ", ": " "} 
+                  {cocktail.strIngredient6 ? cocktail.strIngredient6 + ", ": " "} 
+                  {cocktail.strIngredient7 ? cocktail.strIngredient7 + ", ": " "} 
+                  {cocktail.strIngredient8 ? cocktail.strIngredient8 + ", ": " "} 
+                  {cocktail.strIngredient9 ? cocktail.strIngredient9 + ", ": " "} 
+                  {cocktail.strIngredient10 ? cocktail.strIngredient10 + ", ": " "} 
+                  {cocktail.strIngredient11 ? cocktail.strIngredient11 + ", ": " "} 
                   {}
                 </p>
               </div>

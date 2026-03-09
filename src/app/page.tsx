@@ -12,10 +12,11 @@ export const Home = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [idRandom, setIdRandom] = useState<string | null>(null);
+  const [name, setInputName] = useState<string> ("");
 
-  const fetchDrinks = async () => {
+  const fetchDrinks = async (name : string) => {
     setLoading(true);
-    await getCocktailByName()
+    await getCocktailByName(name)
       .then((res) => {
         setCocktails(res.drinks);
       })
@@ -30,7 +31,7 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    fetchDrinks();
+    fetchDrinks("");
     fetchRandomDrink();
   }, []);
 
@@ -39,6 +40,21 @@ export const Home = () => {
       <Link href={`/cocktail/${idRandom}`}>
         <button>Dime algo bonito</button>
       </Link>
+       <input
+        onChange={(e) => {
+          setInputName(e.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          fetchDrinks(name);
+          {
+            loading && <h2>Loading...</h2>;
+          }
+        }}
+      >
+        Search
+      </button>
       <div className="mainCointer">
         {error && <h3>Error: {error}</h3>}
         {!loading && cocktails &&
