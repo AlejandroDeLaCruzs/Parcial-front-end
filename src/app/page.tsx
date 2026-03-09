@@ -12,9 +12,9 @@ export const Home = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [idRandom, setIdRandom] = useState<string | null>(null);
-  const [name, setInputName] = useState<string> ("");
+  const [name, setInputName] = useState<string>("");
 
-  const fetchDrinks = async (name : string) => {
+  const fetchDrinks = async (name: string) => {
     setLoading(true);
     await getCocktailByName(name)
       .then((res) => {
@@ -40,7 +40,7 @@ export const Home = () => {
       <Link href={`/cocktail/${idRandom}`}>
         <button>Dime algo bonito</button>
       </Link>
-       <input
+      <input
         onChange={(e) => {
           setInputName(e.target.value);
         }}
@@ -57,7 +57,8 @@ export const Home = () => {
       </button>
       <div className="mainCointer">
         {error && <h3>Error: {error}</h3>}
-        {!loading && cocktails &&
+        {!loading &&
+          cocktails &&
           cocktails.map((e) => <Cocktail key={e.idDrink} cocktail={e} />)}
       </div>
     </div>

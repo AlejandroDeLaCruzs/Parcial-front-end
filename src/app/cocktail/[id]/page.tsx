@@ -7,12 +7,16 @@ import { useEffect, useState } from "react";
 export const CocktailInfo = () => {
   const [cocktail, setCocktail] = useState<Drink | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const { id } : {id : string} = useParams();
+  const { id }: { id: string } = useParams();
+
   useEffect(() => {
-    getCocktailById(id).then((res) => {
-      setCocktail(res.drinks.at(0));
-      setLoading(false);
-    });
+    getCocktailById(id)
+      .then((res) => {
+        setCocktail(res.drinks.at(0));
+        setLoading(false);
+      })
+      .catch((e) => console.log(e))
+      .finally(() => setLoading(false));
   }, [id]);
 
   return (
@@ -30,16 +34,36 @@ export const CocktailInfo = () => {
                 <p>Instrucciones: {cocktail.strInstructions}</p>
                 <p>
                   Ingredientes: {cocktail.strIngredient1} ,{" "}
-                  {cocktail.strIngredient2 ? cocktail.strIngredient2 + ", " : ""} 
-                  {cocktail.strIngredient3 ? cocktail.strIngredient3 + ", ": " "}
-                  {cocktail.strIngredient4 ? cocktail.strIngredient4 + ", ": " "} 
-                  {cocktail.strIngredient5 ? cocktail.strIngredient5 + ", ": " "} 
-                  {cocktail.strIngredient6 ? cocktail.strIngredient6 + ", ": " "} 
-                  {cocktail.strIngredient7 ? cocktail.strIngredient7 + ", ": " "} 
-                  {cocktail.strIngredient8 ? cocktail.strIngredient8 + ", ": " "} 
-                  {cocktail.strIngredient9 ? cocktail.strIngredient9 + ", ": " "} 
-                  {cocktail.strIngredient10 ? cocktail.strIngredient10 + ", ": " "} 
-                  {cocktail.strIngredient11 ? cocktail.strIngredient11 + ", ": " "} 
+                  {cocktail.strIngredient2
+                    ? cocktail.strIngredient2 + ", "
+                    : ""}
+                  {cocktail.strIngredient3
+                    ? cocktail.strIngredient3 + ", "
+                    : " "}
+                  {cocktail.strIngredient4
+                    ? cocktail.strIngredient4 + ", "
+                    : " "}
+                  {cocktail.strIngredient5
+                    ? cocktail.strIngredient5 + ", "
+                    : " "}
+                  {cocktail.strIngredient6
+                    ? cocktail.strIngredient6 + ", "
+                    : " "}
+                  {cocktail.strIngredient7
+                    ? cocktail.strIngredient7 + ", "
+                    : " "}
+                  {cocktail.strIngredient8
+                    ? cocktail.strIngredient8 + ", "
+                    : " "}
+                  {cocktail.strIngredient9
+                    ? cocktail.strIngredient9 + ", "
+                    : " "}
+                  {cocktail.strIngredient10
+                    ? cocktail.strIngredient10 + ", "
+                    : " "}
+                  {cocktail.strIngredient11
+                    ? cocktail.strIngredient11 + ", "
+                    : " "}
                   {}
                 </p>
               </div>

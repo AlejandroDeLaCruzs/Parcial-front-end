@@ -1,4 +1,4 @@
-"use client";
+
 import { Drink } from "@/types/cocktail";
 import Link from "next/link";
 
