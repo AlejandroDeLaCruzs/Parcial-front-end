@@ -20,7 +20,7 @@ export const Home = () => {
       .then((res) => {
         setCocktails(res.drinks);
       })
-      .catch((e) => console.log(e))
+      .catch((e) => setError(e))
       .finally(() => setLoading(false));
   };
 
@@ -57,6 +57,7 @@ export const Home = () => {
       </button>
       <div className="mainCointer">
         {error && <h3>Error: {error}</h3>}
+        {loading && <h1>Loading...</h1>}
         {!loading &&
           cocktails &&
           cocktails.map((e) => <Cocktail key={e.idDrink} cocktail={e} />)}

@@ -58,7 +58,6 @@ body {
 .contiener img {
   top: 20px;
   right: 5px;
-  height: auto;
   border-radius: 20px;
   border: 2px solid black;
   max-width: 200px;

@@ -21,6 +21,7 @@ export const CocktailInfo = () => {
 
   return (
     <>
+    {loading && <h1>Loading...</h1>}
       {!loading && cocktail && (
         <div className="mainInfo">
           <div className="contiener">
