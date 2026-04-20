@@ -3,9 +3,10 @@
 import "./globals.css";
 import { useEffect, useState } from "react";
 import { getCocktailByName, getRandomCocktail } from "@/lib/api/cocktails";
-import Cocktail from "@/components/cocktail";
+import Cocktail from "@/app/components/cocktail";
 import { Drink } from "@/types";
 import Link from "next/link";
+
 
 export const Home = () => {
   const [cocktails, setCocktails] = useState<Drink[] | null>(null);
@@ -13,6 +14,7 @@ export const Home = () => {
   const [error, setError] = useState<string | null>(null);
   const [idRandom, setIdRandom] = useState<string | null>(null);
   const [name, setInputName] = useState<string>("");
+  
 
   const fetchDrinks = async (name: string) => {
     setLoading(true);
@@ -37,6 +39,10 @@ export const Home = () => {
 
   return (
     <div className="main">
+      <Link href={`/cocktail/favoritos`}>
+        <button>Ir a favoritos</button>
+      </Link>
+
       <Link href={`/cocktail/${idRandom}`}>
         <button>Dime algo bonito</button>
       </Link>

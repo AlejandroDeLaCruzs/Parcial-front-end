@@ -9,7 +9,7 @@ export const getCocktailByName = async (name: string) => {
 
 export const getCocktailById = async (id: string) => {
   const response = await api.get<Drink[]>(`/lookup.php?i=${id}`);
-  return response.data;
+  return response.data.drinks.at(0);
 };
 
 export const getRandomCocktail = async () => {
